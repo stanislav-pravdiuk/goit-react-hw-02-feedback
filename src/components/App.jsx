@@ -1,4 +1,4 @@
-import Feedback from "./Feedback";
+import Feedback from "./feedback/Feedback";
 
 export const App = () => {
   return (
@@ -12,9 +12,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <Feedback
-      
-      />
+      <Feedback/>
     </div>
   );
 };
