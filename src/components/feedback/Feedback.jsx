@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import FeedbackOptions from "components/fedback-options/FeedbackOptions";
 import Statistics from "../statistics/Statistics";
-import Section from "../utils/Section";
+import Section from "../section/Section";
+import Notification from "components/notification/Notification";
+import PropTypes from 'prop-types';
 
 class Feedback extends Component{
     static defaultProps = {
@@ -13,7 +15,11 @@ class Feedback extends Component{
     };
 
     // static propTypes = {
-
+    //     initialGood: this.propTypes.number.isRequired,
+    //     initialNeutral: this.propTypes.number.isRequired,
+    //     initialBad: this.propTypes.number.isRequired,
+    //     initialTotal: this.propTypes.number.isRequired,
+    //     initialPositiveFeedback: this.propTypes.number.isRequired,
     // }
 
     state = {
@@ -49,6 +55,7 @@ class Feedback extends Component{
     render() {
         return (
             <div className="feedback">
+                
                 <Section title=''>
                     <FeedbackOptions
                         onLeaveFeedback={this.handleLeaveFeedback}
@@ -57,18 +64,31 @@ class Feedback extends Component{
                 </Section>
                 
                 <Section title="Statistics">
-                    <Statistics
-                        good={this.state.good}
-                        neutral={this.state.neutral}
-                        bad={this.state.bad}
-                        total={this.state.total}
-                        positivePercentage={this.state.positiveFeedback}
-                    />
+                    {this.state.total !== 0
+                        ? (
+                            <Statistics
+                                good={this.state.good}
+                                neutral={this.state.neutral}
+                                bad={this.state.bad}
+                                total={this.state.total}
+                                positivePercentage={this.state.positiveFeedback}
+                            />
+                        )
+                    
+                        : (<Notification message="There is no feedback" />)}
                 </Section>
 
             </div>
         )
     }
+};
+
+Feedback.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positiveFeedback: PropTypes.number.isRequired,
 };
 
 export default Feedback;
