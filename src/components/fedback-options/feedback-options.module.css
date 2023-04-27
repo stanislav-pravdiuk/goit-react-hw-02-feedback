@@ -1,0 +1,11 @@
+.feedbackOptions__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedbackOptions__blockBtn button {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 60px;
+    background-color: white;
+}

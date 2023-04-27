@@ -1,0 +1,4 @@
+.statistics {
+    display: flex;
+    flex-direction: column;
+}
