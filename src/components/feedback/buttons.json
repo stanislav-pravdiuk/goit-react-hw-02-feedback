@@ -1,5 +1,3 @@
-[
-    "Good",
-    "Neutral",
-    "Bad",
-]
+{
+    "buttons": ["good", "neutral", "bad"]
+}

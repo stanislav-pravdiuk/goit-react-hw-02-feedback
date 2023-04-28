@@ -4,7 +4,7 @@ import Statistics from "../statistics/Statistics";
 import Section from "../section/Section";
 import Notification from "components/notification/Notification";
 import PropTypes from 'prop-types';
-import buttons from './buttons.json'
+import btns from './buttons.json'
 
 class Feedback extends Component{
     static defaultProps = {
@@ -14,14 +14,6 @@ class Feedback extends Component{
         initialTotal: 0,
         initialPositiveFeedback: 0,
     };
-
-    // static propTypes = {
-    //     initialGood: this.propTypes.number.isRequired,
-    //     initialNeutral: this.propTypes.number.isRequired,
-    //     initialBad: this.propTypes.number.isRequired,
-    //     initialTotal: this.propTypes.number.isRequired,
-    //     initialPositiveFeedback: this.propTypes.number.isRequired,
-    // }
 
     state = {
         good: this.props.initialGood,
@@ -60,7 +52,7 @@ class Feedback extends Component{
                 <Section title=''>
                     <FeedbackOptions
                         onLeaveFeedback={this.handleLeaveFeedback}
-                        options={buttons}
+                        options={btns.buttons}
                     />
                 </Section>
                 
@@ -85,11 +77,11 @@ class Feedback extends Component{
 };
 
 Feedback.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
-    positiveFeedback: PropTypes.number.isRequired,
+    initialGood: PropTypes.number.isRequired,
+    initialNeutral: PropTypes.number.isRequired,
+    initialBad: PropTypes.number.isRequired,
+    initialTotal: PropTypes.number.isRequired,
+    initialPositiveFeedback: PropTypes.number.isRequired,
 };
 
 export default Feedback;
