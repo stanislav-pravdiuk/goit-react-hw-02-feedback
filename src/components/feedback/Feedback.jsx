@@ -4,6 +4,7 @@ import Statistics from "../statistics/Statistics";
 import Section from "../section/Section";
 import Notification from "components/notification/Notification";
 import PropTypes from 'prop-types';
+import buttons from './buttons.json'
 
 class Feedback extends Component{
     static defaultProps = {
@@ -59,7 +60,7 @@ class Feedback extends Component{
                 <Section title=''>
                     <FeedbackOptions
                         onLeaveFeedback={this.handleLeaveFeedback}
-                        options={"?"}
+                        options={buttons}
                     />
                 </Section>
                 
